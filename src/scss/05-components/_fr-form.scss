@@ -1,0 +1,24 @@
+/*------------------------------------
+	# FORM CONTROL
+------------------------------------*/
+
+.#{$wf__ns}form {
+  fieldset {
+    border: none;
+    margin: 0;
+    padding: 0;
+    legend {
+      display: none;
+    }
+  }
+
+  &__ipt {
+    width: 100%;
+  }
+
+  &__btn {
+
+    width: 100%;
+
+  }
+}

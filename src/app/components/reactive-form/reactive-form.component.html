@@ -1,0 +1,259 @@
+<div class="ui-g">
+  <div class="ui-g-12">
+    <p-card>
+      <form class="rf-form" [formGroup]="formGroup">
+        <fieldset>
+          <legend class="t-hideAccessible">Formulario</legend>
+          <div class="ui-g">
+            <div class="ui-g-12">
+              <h3>Filtros</h3>
+            </div>
+          </div>
+          <div class="ui-g">
+            <div class="ui-g-2 ui-g-nopad">
+              <div class="ui-g">
+                <div class="ui-g-12">
+                  <label for="name-ipt">Nombre</label>
+                </div>
+              </div>
+              <div class="ui-g">
+                <div class="ui-g-12">
+                  <input class="rf-form__ipt" pInputText inputId="name-ipt" formControlName="name" />
+                </div>
+              </div>
+            </div>
+            <div class="ui-g-2 ui-g-nopad">
+              <div class="ui-g">
+                <div class="ui-g-12">
+                  <label for="gender">Sexo</label>
+                </div>
+              </div>
+              <div class="ui-g">
+                <div class="ui-g-6">
+                  <p-radioButton name="gender" formControlName="gender" label="Hombre" [value]="'Hombre'">
+                  </p-radioButton>
+                </div>
+                <div class="ui-g-6">
+                  <p-radioButton name="gender" formControlName="gender" label="Mujer" [value]="'Mujer'"></p-radioButton>
+                </div>
+              </div>
+            </div>
+            <div class="ui-g-2 ui-g-nopad">
+              <div class="ui-g">
+                <div class="ui-g-12">
+                  <label for="address-ipt">Direcci&oacute;n</label>
+                </div>
+              </div>
+              <div class="ui-g">
+                <div class="ui-g-12">
+                  <input class="rf-form__ipt" pInputText inputId="address-ipt" formControlName="address" />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="ui-g">
+            <div class="ui-g-2 ui-lg-1">
+              <button pButton type="button" label="Reset" class="rf-form__btn ui-button-rounded ui-button-danger"
+                (click)="resetForm()"></button>
+            </div>
+            <div class="ui-g-2 ui-lg-1">
+              <button pButton type="button" [label]="formGroup.controls['name'].disabled ? 'Enable' : 'Disable'"
+                class="rf-form__btn ui-button-rounded ui-button-warning" (click)="setDisable()"></button>
+            </div>
+          </div>
+        </fieldset>
+      </form>
+    </p-card>
+  </div>
+</div>
+<div class="ui-g">
+  <div class="ui-g-12">
+    <p-card>
+      <div class="ui-g">
+        <div class="ui-g-12">
+          <h3>Comprobaciones</h3>
+        </div>
+      </div>
+      <div class="ui-g">
+        <div class="ui-g-12 ui-g-nopad">
+          <p-inplace>
+            <span pInplaceDisplay>
+              Obtener valor de "Nombre"
+            </span>
+            <span pInplaceContent>
+              <div class="ui-g">
+                <div class="ui-g-6">
+                  <span>Muestro el valor de "Nombre" con control.value: {{formGroup.controls['name'].value}}</span>
+                </div>
+                <div class="ui-g-6">
+                  <span>Muestro el valor de "Nombre" con get().value: {{formGroup.get('name').value}}</span>
+                </div>
+              </div>
+            </span>
+          </p-inplace>
+
+        </div>
+      </div>
+      <div class="ui-g">
+        <div class="ui-g-12 ui-g-nopad">
+
+          <p-inplace>
+            <span pInplaceDisplay>
+              Obtener valor de "Sexo"
+            </span>
+            <span pInplaceContent>
+              <div class="ui-g">
+                <div class="ui-g-6">
+                  <span>Muestro el valor de "Sexo" con control.value: {{formGroup.controls['gender'].value}}</span>
+                </div>
+                <div class="ui-g-6">
+                  <span>Muestro el valor de "Sexo" con get().value: {{formGroup.get('gender').value}}</span>
+                </div>
+              </div>
+            </span>
+          </p-inplace>
+        </div>
+      </div>
+      <div class="ui-g">
+        <div class="ui-g-12 ui-g-nopad">
+          <p-inplace>
+            <span pInplaceDisplay>
+              Obtener valor de "Direcci&oacute;n"
+            </span>
+            <span pInplaceContent>
+              <div class="ui-g">
+                <div class="ui-g-6">
+                  <span>Muestro el valor de "Dirección" con control.value:
+                    {{formGroup.controls['address'].value}}</span>
+                </div>
+                <div class="ui-g-6">
+                  <span>Muestro el valor de "Dirección" con get().value: {{formGroup.get('address').value}}</span>
+                </div>
+              </div>
+            </span>
+          </p-inplace>
+
+        </div>
+      </div>
+      <div class="ui-g">
+
+        <div class="ui-g-12 ui-g-nopad">
+
+          <p-inplace>
+            <span pInplaceDisplay>
+              Comprobar si "Nombre" y "Direcci&oacute;n" son validos
+            </span>
+            <span pInplaceContent>
+
+              <div class="ui-g">
+                <div class="ui-g-4">
+                  <span>¿Nombre es v&aacute;lido?: {{formGroup.controls['name'].valid ? 'Si' : 'No'}}</span>
+                </div>
+                <div class="ui-g-4">
+                  <span>¿Direcci&oacute;n es v&aacute;lido?: {{formGroup.get('address').valid ? 'Si' : 'No'}}</span>
+                </div>
+              </div>
+            </span>
+          </p-inplace>
+        </div>
+      </div>
+      <div class="ui-g">
+
+        <div class="ui-g-12 ui-g-nopad">
+
+          <p-inplace>
+            <span pInplaceDisplay>
+              Cambiar valor de "Sexo" con valueChanges
+            </span>
+            <span pInplaceContent>
+              <div class="ui-g">
+                <div class="ui-g-6">
+                  <span>Cuando en "Nombre" ponga "Mujer" cambiar&aacute; el radiobutton al dicho valor</span>
+                </div>
+                <div class="ui-g-6">
+                  <span>Cuando en "Direcci&oacute;n" ponga "Hombre" cambiar&aacute; el radiobutton al dicho valor</span>
+                </div>
+              </div>
+            </span>
+          </p-inplace>
+        </div>
+      </div>
+      <div class="ui-g">
+        <div class="ui-g-12 ui-g-nopad">
+          <p-inplace>
+            <span pInplaceDisplay>
+              Comprobar si se deshabilitan los campos
+            </span>
+            <span pInplaceContent>
+              <div class="ui-g">
+                <div class="ui-g-4">
+                  <span>¿"Nombre" est&aacute; deshabilitado?:
+                    {{ formGroup.controls['name'].disabled ? 'Si' : 'No'}}</span>
+                </div>
+                <div class="ui-g-4">
+                  <span>¿"Direcci&oacute;n" est&aacute; deshabilitado?:
+                    {{ formGroup.controls['address'].disabled ? 'Si' : 'No'}}</span>
+                </div>
+                <div class="ui-g-4">
+                  <span>¿"Sexo" est&aacute; deshabilitado?:
+                    {{ formGroup.controls['gender'].disabled ? 'Si' : 'No'}}</span>
+                </div>
+              </div>
+            </span>
+          </p-inplace>
+        </div>
+      </div>
+      <div class="ui-g">
+        <div class="ui-g-12 ui-g-nopad">
+          <p-inplace>
+            <span pInplaceDisplay>
+              Comprobar los errores del custom validator de "Nombre"
+            </span>
+            <span pInplaceContent>
+              <div class="ui-g">
+                <div class="ui-g-12">
+                  <span>Errores en "Nombre":
+                    {{ formGroup.controls['name'].errors | json }}</span>
+                </div>
+              </div>
+            </span>
+          </p-inplace>
+        </div>
+      </div>
+    </p-card>
+  </div>
+</div>
+<div class="ui-g">
+  <div class="ui-g-12">
+    <p-card>
+      <div class="ui-g">
+        <div class="ui-g-12">
+          <h3>Ejercicios</h3>
+        </div>
+      </div>
+      <div class="ui-g">
+        <div class="ui-g-12">
+          <span>1. Realizar un custom validator que prohiba poner numeros en el campo "Nombre".</span>
+        </div>
+      </div>
+      <div class="ui-g">
+        <div class="ui-g-12">
+          <span>2. Añadir un componente "Dropdown" de primeng, agregarlo al FormGroup y hacer un valueChanges del mismo,
+            el cual al cambiar, limpiar&aacute; los campos.</span>
+        </div>
+      </div>
+      <div class="ui-g">
+        <div class="ui-g-12">
+          <span>3. Hacer un bot&oacute;n que añada controles a un FormArray y que estos se reflejen como inputs tipo
+            text en la vista.</span>
+        </div>
+      </div>
+      <div class="ui-g">
+        <div class="ui-g-12">
+          <span>4. Agregar un bot&oacute;n tipo submit, el cual estará en disable mientras el formulario no sea
+            v&aacute;lido.</span>
+        </div>
+      </div>
+    </p-card>
+  </div>
+</div>
